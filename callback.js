@@ -16,12 +16,13 @@ function getPosts() {
 
 // Function is called after getPosts is rendered on HTML
 // The third blog post will not appear on HTML
-function createPost(post) {
+function createPost(post, callback) {
     setTimeout(() => {
         posts.push(post);
+        callback();
     }, 2000);
 } //CreatePost
 
-getPosts();
+// getPosts();
 
-createPost({ title: "Post Three", body: "This is post Three" });
+createPost({ title: "Post Three", body: "This is post Three" }, getPosts);
